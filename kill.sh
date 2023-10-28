@@ -1,0 +1,1 @@
+/opt/TurboVNC/bin/vncserver -kill :9
