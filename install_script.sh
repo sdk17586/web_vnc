@@ -11,7 +11,7 @@ dpkg -i /root/web_vnc_view/turbovnc_3.0.3_amd64.deb
 # VNC 비밀번호 설정
 export HOME=/root
 mkdir -p $HOME/.vnc
-echo "rdv12345678!" | /opt/TurboVNC/bin/vncpasswd -f > $HOME/.vnc/passwd
+echo "rdv1234!" | /opt/TurboVNC/bin/vncpasswd -f > $HOME/.vnc/passwd
 chmod 600 $HOME/.vnc/passwd
 
 # VNC 서버 시작을 위한 기본 설정 파일 생성
