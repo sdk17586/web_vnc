@@ -2,7 +2,7 @@
 
 sudo apt install novnc
 sudo dpkg -i /root/web_vnc_view/turbovnc_3.0.3_amd64.deb
-echo "rdv1234!" | /opt/TurboVNC/bin/vncpasswd -f > /opt/TurboVNC/bin/passwd
+echo "rdv12345678!" | /opt/TurboVNC/bin/vncpasswd -f > /opt/TurboVNC/bin/passwd
 
 git clone https://github.com/novnc/websockify noVNC/utils/websockify
 
