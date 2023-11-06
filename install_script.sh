@@ -9,18 +9,23 @@ git clone https://github.com/novnc/websockify /opt/noVNC/utils/websockify
 dpkg -i /root/web_vnc_view/turbovnc_3.0.3_amd64.deb
 
 # VNC 비밀번호 설정
-echo "rdv12345678!" | /opt/TurboVNC/bin/vncpasswd -f > /opt/TurboVNC/bin/passwd
+export HOME=/root
+mkdir -p $HOME/.vnc
+echo "rdv12345678!" | /opt/TurboVNC/bin/vncpasswd -f > $HOME/.vnc/passwd
+chmod 600 $HOME/.vnc/passwd
 
-# VNC 서버 시작을 위한 기본 설정 파일 생성 (필요한 경우)
-/opt/TurboVNC/bin/vncserver -kill :1 || true
-mv ~/.vnc/xstartup ~/.vnc/xstartup.bak || true
-echo "#!/bin/sh" > ~/.vnc/xstartup
-echo "unset SESSION_MANAGER" >> ~/.vnc/xstartup
-echo "unset DBUS_SESSION_BUS_ADDRESS" >> ~/.vnc/xstartup
-echo "[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup" >> ~/.vnc/xstartup
-echo "[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources" >> ~/.vnc/xstartup
-echo "xsetroot -solid grey" >> ~/.vnc/xstartup
-echo "vncconfig -iconic &" >> ~/.vnc/xstartup
-echo "autocutsel -fork" >> ~/.vnc/xstartup
-echo "startxfce4 &" >> ~/.vnc/xstartup
-chmod +x ~/.vnc/xstartup
+# VNC 서버 시작을 위한 기본 설정 파일 생성
+/opt/TurboVNC/bin/vncserver -kill :1 || true  # 이전에 실행된 VNC 세션 종료 시도
+mv $HOME/.vnc/xstartup $HOME/.vnc/xstartup.bak || true  # 기존의 xstartup 백업
+echo "#!/bin/sh" > $HOME/.vnc/xstartup
+echo "unset SESSION_MANAGER" >> $HOME/.vnc/xstartup
+echo "unset DBUS_SESSION_BUS_ADDRESS" >> $HOME/.vnc/xstartup
+echo "[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup" >> $HOME/.vnc/xstartup
+echo "[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources" >> $HOME/.vnc/xstartup
+echo "xsetroot -solid grey" >> $HOME/.vnc/xstartup
+echo "vncconfig -iconic &" >> $HOME/.vnc/xstartup
+echo "autocutsel -fork" >> $HOME/.vnc/xstartup
+echo "startxfce4 &" >> $HOME/.vnc/xstartup
+chmod +x $HOME/.vnc/xstartup
+
+
