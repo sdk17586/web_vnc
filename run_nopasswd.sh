@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CURPATH=/root/rdv_webvnc
+CURPATH=/root/web_vnc_view
 PATH_NOVNC=$CURPATH/noVNC
 NOVNC=$PATH_NOVNC/utils/novnc_proxy
 
