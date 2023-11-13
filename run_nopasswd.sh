@@ -1,5 +1,10 @@
 #!/bin/bash
 
+XAUTHORITY_FILE="/root/.Xauthority"
+if [ ! -f "$XAUTHORITY_FILE" ]; then
+    touch "$XAUTHORITY_FILE"
+fi
+
 CURPATH=/root/web_vnc_view
 PATH_NOVNC=$CURPATH/noVNC
 NOVNC=$PATH_NOVNC/utils/novnc_proxy
@@ -18,3 +23,4 @@ if [ -f "$NOVNC" ]; then
 else
     echo "Error: $NOVNC does not exist!"
 fi
+
