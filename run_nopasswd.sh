@@ -8,10 +8,6 @@ if [ -f "$LOCK_FILE" ]; then
     sudo rm -f "$LOCK_FILE"
 fi
 
-# 기존 스크립트 내용
-XAUTHORITY_FILE="/root/.Xauthority"
-# ... 나머지 스크립트 내용 ...
-
 
 XAUTHORITY_FILE="/root/.Xauthority"
 if [ ! -f "$XAUTHORITY_FILE" ]; then
