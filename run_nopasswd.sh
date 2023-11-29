@@ -1,5 +1,18 @@
 #!/bin/bash
 
+#!/bin/bash
+
+LOCK_FILE="/tmp/.X9-lock"
+if [ -f "$LOCK_FILE" ]; then
+    echo "Removing lock file: $LOCK_FILE"
+    sudo rm -f "$LOCK_FILE"
+fi
+
+# 기존 스크립트 내용
+XAUTHORITY_FILE="/root/.Xauthority"
+# ... 나머지 스크립트 내용 ...
+
+
 XAUTHORITY_FILE="/root/.Xauthority"
 if [ ! -f "$XAUTHORITY_FILE" ]; then
     touch "$XAUTHORITY_FILE"
