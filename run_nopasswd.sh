@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-
 LOCK_FILE="/tmp/.X9-lock"
 if [ -f "$LOCK_FILE" ]; then
     echo "Removing lock file: $LOCK_FILE"
